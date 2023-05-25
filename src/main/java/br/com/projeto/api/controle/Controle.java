@@ -1,12 +1,10 @@
 package br.com.projeto.api.controle;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-=======
->>>>>>> parent of 374b31c (Método DELETE: Deletar cadastros)
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,6 +35,10 @@ public class Controle {
     public Cliente editar(@RequestBody Cliente c){
         return acao.save(c);
 
+    }
+    @DeleteMapping("/{codigo}")
+    public void remover(@PathVariable long codigo){
+        acao.deleteById(codigo);
     }
 
 
